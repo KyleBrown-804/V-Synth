@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue';
+import { invoke } from '@tauri-apps/api';
 
-defineProps<{ msg: string }>()
-
-const count = ref(0)
+let message = ref('default');
+onMounted(() => {
+  invoke('greet', { name: 'From Rust' }).then((resp) => message.value = resp as string);
+});
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ message }}</h1>
 </template>
 
 <style scoped>
