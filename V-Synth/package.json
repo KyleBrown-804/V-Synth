@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1.0.2",
+    "interactjs": "^1.10.17",
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "@interactjs/types": "^1.10.17",
     "@tauri-apps/cli": "^1.0.5",
     "@types/node": "^18.0.6",
     "@vitejs/plugin-vue": "^3.0.0",
