@@ -51,12 +51,18 @@
     .resize-container {
         background-color: #5c5c8a;
         opacity: 0.75;
-        min-height: 20rem;
-        min-width: 30rem;
-        max-height: 40rem;
-        max-width: 60rem;
-    
-        resize: both;
+        min-height: 10rem;
+        min-width: 10rem;
+        width: fit-content;
+        height: fit-content;
         overflow: auto;
+
+        /* // &__draggable-header {
+        //     position: absolute;
+        //     top: 0;
+        //     height: 2rem;
+        //     color: antiquewhite;
+        //     width: 100%;
+        // } */
     }
 </style>
