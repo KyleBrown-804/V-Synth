@@ -18,14 +18,8 @@
 
     const transformString = computed(() => {
         const { x, y } = position;
-        return `translate3D(${x}px, ${y}px, 0)`;
+        return `translate(${x}px, ${y}px)`;
     });
-
-    function interactSetPosition(coordinates: {pX: number, pY: number}): void {
-        const { pX, pY } = coordinates;
-        position.x = pX;
-        position.y = pY;
-    }
 
     function resetContainerPosition(): void {
         position.x = 0;
@@ -34,13 +28,12 @@
 
     onMounted(() => {
         interact(interactableContainer.value).draggable({
+            modifiers: [
+                interact.modifiers.restrictRect({ restriction: 'parent' })
+            ],
             onmove: event => {
-                const x = position.x + event.dx as number;
-                const y = position.y + event.dy as number;
-                interactSetPosition({ pX: x, pY: y });
-            },
-            onend: () => {
-                resetContainerPosition();
+                position.x += event.dx as number;
+                position.y += event.dy as number;
             }
         });
     });
